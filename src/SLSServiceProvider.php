@@ -1,19 +1,16 @@
 <?php
-/**
- * @link http://github.com/seffeng/
- * @copyright Copyright (c) 2020 seffeng
- */
+
 namespace Seffeng\LaravelSLS;
 
-use Illuminate\Foundation\Application as LaravelApplication;
 use Laravel\Lumen\Application as LumenApplication;
+use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class SLSServiceProvider extends BaseServiceProvider
 {
     /**
-     *
      * {@inheritDoc}
+     *
      * @see \Illuminate\Support\ServiceProvider::register()
      */
     public function register()
@@ -23,11 +20,11 @@ class SLSServiceProvider extends BaseServiceProvider
 
         $this->app->singleton('sls', function ($app) {
             $config = $app['config']->get('sls');
+
             if ($config && is_array($config)) {
                 return new SLSLog($config);
-            } else {
-                throw new \RuntimeException('Please execute the command `php artisan vendor:publish --tag="sls"` first to  generate sms configuration file.');
             }
+            throw new \RuntimeException('Please execute the command `php artisan vendor:publish --tag="sls"` first to  generate sms configuration file.');
         });
 
         $config = $this->app['config']['sls'];
@@ -35,7 +32,6 @@ class SLSServiceProvider extends BaseServiceProvider
     }
 
     /**
-     *
      * @author zxf
      * @date    2020年4月17日
      */
@@ -49,7 +45,6 @@ class SLSServiceProvider extends BaseServiceProvider
     }
 
     /**
-     *
      * @author zxf
      * @date    2020年4月18日
      */
@@ -60,9 +55,9 @@ class SLSServiceProvider extends BaseServiceProvider
     }
 
     /**
-     *
      * @author zxf
      * @date    2020年4月17日
+     *
      * @return string
      */
     protected function configPath()

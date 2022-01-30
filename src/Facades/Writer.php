@@ -1,8 +1,5 @@
 <?php
-/**
- * @link http://github.com/seffeng/
- * @copyright Copyright (c) 2020 seffeng
- */
+
 namespace Seffeng\LaravelSLS\Facades;
 
 use Illuminate\Support\Facades\Facade;
@@ -25,9 +22,9 @@ use Illuminate\Support\Facades\Facade;
 class Writer extends Facade
 {
     /**
-     *
      * @author zxf
      * @date   2020年4月26日
+     *
      * @return string
      */
     protected static function getFacadeAccessor()

@@ -1,18 +1,24 @@
-<?php  declare(strict_types=1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Seffeng\LaravelSLS\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Seffeng\LaravelSLS\Facades\SLSLog;
 use Illuminate\Support\Facades\Log;
+use Seffeng\LaravelSLS\Facades\SLSLog;
 use Seffeng\LaravelSLS\Facades\Writer;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class LogTest extends TestCase
 {
     /**
-     *
      * @author zxf
      * @date    2020年4月17日
+     *
      * @throws \Exception
      */
     public function testPutLogs()
@@ -20,6 +26,7 @@ class LogTest extends TestCase
         try {
             // 使用方式，建议最后一种
             $mode = 2;
+
             if ($mode === 1) {
                 // 仅写到阿里云日志，内容支持多条：[['username' => 'admin', 'action' => 'create user.111'], ['username' => 'admin', 'action' => 'delete user.111']]
                 app('sls')->putLogs(['username' => 'admin', 'action' => 'create user.111']);
